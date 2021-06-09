@@ -21,6 +21,7 @@ namespace Game2048
     public partial class MainWindow : Window
     {
         int score;
+        Model[,] pins = new Model[4, 4];
         Label[,] labels = new Label[4, 4];
 
         public MainWindow()
@@ -32,8 +33,15 @@ namespace Game2048
         private void NewGame()
         {
             score = 0;
+            Model.AddNewGameLables(pins);//!!!!!!!
             Score.Text = score.ToString();
+            AddNewLable();//!!!!!!!!!!!!!!!!!!!!!!
             
+        }
+
+        private void AddNewLable()
+        {
+            throw new NotImplementedException();
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

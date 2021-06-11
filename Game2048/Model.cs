@@ -62,7 +62,66 @@ namespace Game2048
             RandomAddLable(pin);
         }
 
-        public static void FillGameMap(Model[,] pin)// Заполнение поля пустыми лейблами
+        public static List<int> LIstOfProc(List<int> list, int score)// Создание списка изменений 
+        {
+            List<int> resalt = new List<int>();
+            int first = 0;
+            int second = -1;
+            while (second <= 3 && first <= 2)
+            {
+                if (list[first] == 0)
+                {
+                    first++;
+                    second = first + 1;
+                }
+                else if (list[second] == 0)
+                {
+                    second++;
+                }
+                else
+                {
+                    if (list[first] == list[second])
+                    {
+                        resalt.Add(first);
+                        list[first] = list[first] * 2;
+                        list[second] = 0;
+                        score = score + list[first];
+                        first++;
+                        second = first + 1;
+                    }
+                }
+            }
+
+            int zerosIndexses = -1;
+            for (int i = 0; i < 4; i++)
+            {
+                if (list[i] == 0)
+                {
+                    if (zerosIndexses == -1)
+                    {
+                        zerosIndexses = i;
+                    }
+                }
+                else
+                {
+                    if (zerosIndexses != -1)
+                    {
+                        if (resalt.Contains(i))
+                        {
+                            resalt[resalt.IndexOf(i)] = zerosIndexses;
+                        }
+                        list[zerosIndexses] = list[i];
+                        list[i] = 0;
+                        zerosIndexses = -1;
+                        i = zerosIndexses + 1;
+                        resalt.Add(-1);
+                    }
+                }
+            }
+            return resalt;
+        }
+
+        public static void FillGameMap(Model[,] pin)// Заполнение полей модели пустыми лейблами
         {
             for (int row = 0; row < 4; row++)
             {

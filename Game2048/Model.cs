@@ -89,6 +89,11 @@ namespace Game2048
                         first++;
                         second = first + 1;
                     }
+                    else
+                    {
+                        first++;
+                        second = first + 1;
+                    }
                 }
             }
 

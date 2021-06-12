@@ -42,6 +42,7 @@ namespace Game2048
 
         private void AddNewLable()// Метод для отрисовки нового блока
         {
+            Clear();
             for (int row = 0; row < 4; row++)
             {
                 for (int clm = 0; clm < 4; clm++)
@@ -54,6 +55,21 @@ namespace Game2048
                         labels[row, clm].Content = pins[row, clm].number.ToString();
                         labels[row, clm].FontSize = 35;
                     }
+
+                    Grid.SetColumn(labels[row, clm], clm);
+                    Grid.SetRow(labels[row, clm], row);
+                    grid.Children.Add(labels[row, clm]);
+                }
+            }
+        }
+
+        private void Clear()
+        {
+            for (int i = 0; i < grid.Children.Count; i++)
+            {
+                if ((Grid.GetColumn(grid.Children[i]) != 4))
+                {
+                    grid.Children.Remove(grid.Children[i]);
                 }
             }
         }

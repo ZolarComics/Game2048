@@ -33,15 +33,29 @@ namespace Game2048
         private void NewGame()
         {
             score = 0;
-            Model.AddNewGameLables(pins);//!!!!!!!
+            Model.AddNewGameLables( pins);//!!!!!!!
+            Model.FillGameMap(pins);
             Score.Text = score.ToString();
             AddNewLable();//!!!!!!!!!!!!!!!!!!!!!!
             
         }
 
-        private void AddNewLable()
+        private void AddNewLable()// Метод для отрисовки нового блока
         {
-            throw new NotImplementedException();
+            for (int row = 0; row < 4; row++)
+            {
+                for (int clm = 0; clm < 4; clm++)
+                {
+                    labels[row, clm] = new Label();
+                    labels[row, clm].BorderThickness = new Thickness(4);
+                    labels[row, clm].FontStretch = new FontStretch();
+                    if(pins[row, clm].number != 0)
+                    {
+                        labels[row, clm].Content = pins[row, clm].number.ToString();
+                        labels[row, clm].FontSize = 35;
+                    }
+                }
+            }
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

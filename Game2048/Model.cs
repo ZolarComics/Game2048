@@ -152,6 +152,7 @@ namespace Game2048
                             pin[row, clm].number = randomNamber;
                             pin[row, clm].isAddLable = true;
                         }
+
                     }
                 }
             }

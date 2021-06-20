@@ -28,7 +28,7 @@
                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                Content="Счет:" FontSize="25"/>
         <TextBlock x:Name="Score" Grid.Column="4" Grid.Row="1" 
-                   HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" Text="0"
+                   HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" Text=""
                    VerticalAlignment="Center"  FontSize="30"/>
     </Grid>
 </Window>

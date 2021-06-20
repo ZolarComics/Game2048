@@ -200,7 +200,7 @@ namespace Game2048
             }
         }
 
-        public static bool TryUp(Model[,] pin, Model[,] oldBlocks,  int score) // Проверка для кнопки вверх
+        public static bool TryUp(Model[,] pin, Model[,] oldBlocks, int score) // Проверка для кнопки вверх
         {
             Model[,] TempBlocks = new Model[4, 4];
             FillGameMap(TempBlocks);

@@ -20,7 +20,7 @@ namespace Game2048
     /// </summary>
     public partial class MainWindow : Window
     {
-        int score;
+        int score = 0;
         Model[,] pins = new Model[4, 4];
         Model[,] oldPins = new Model[4, 4];
         Label[,] labels = new Label[4, 4];
@@ -84,6 +84,8 @@ namespace Game2048
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
+            
+            
             switch (e.Key)
             {
                 case Key.Up: GoUp(); break;
